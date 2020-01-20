@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Responsive Navigation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="flex-box"></div>
+        <div class="flex-box"></div>
+        <div class="flex-box"></div>
+
+        <div class="menu">
+            <ul class="menu-list">
+                <li class="menu-item">Home</li>
+                <li class="menu-item">About</li>
+                <li class="menu-item dropdown-holder dropdown-holder1">Gallery
+                    <div class="hover-box">
+                        <ul class="hover-box-list">
+                            <li class="hover-box-item">slider1</li>
+                            <li class="hover-box-item">slider2</li>
+                            <li class="hover-box-item">slider3</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-item dropdown-holder">
+                    Contact
+                    <div class="hover-box">
+                        <ul class="hover-box-list">
+                            <li class="hover-box-item">Email</li>
+                            <li class="hover-box-item">Social Media</li>
+                            <li class="hover-box-item">Mobile</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu-item">Locations</li>
+            </ul>
+        </div>
+        <div class="toggle">
+            <span class="toggle-span"></span>
+            <span class="toggle-span"></span>
+            <span class="toggle-span"></span>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+        if($(window).width() > 739){
+            $(".dropdown-holder").on("mouseenter", function(e){
+                $(".hover-box, this").slideDown("fast");
+                $(".dropdown-holder").on("mouseleave", function(e){
+                    $(".hover-box", this).slideUp("fast");
+                });
+            });
+        }
+
+        document.querySelector(".toggle").addEventListener("click", ()=>{
+            document.querySelector(".container").classList.toggle("container-open");
+        });
+    </script>
+</body>
+</html>
